@@ -151,3 +151,33 @@ class SibeliusProblem:
 class SibeliusSolution:
     Results: Dict[str, Union[str, float, int, np.ndarray]]
     Status: OperationStatusSerde 
+
+## def train(self, tag: str, features: list, labels: list, test_features: list, test_labels: list, options: dict) -> dict:
+@dataclass 
+class MLTrainingProblem:
+    Config: Dict[str, Union[str,float,int]]
+    Info: UserTokenSerde
+    Tag: str
+    Features: List[Union[str,float,int, List[Union[str,float,int]]]]
+    Labels:  List[Union[str,float,int, List[Union[str,float,int]]]]
+    TestFeatures:  List[Union[str,float,int, List[Union[str,float,int]]]]
+    TestLabels:  List[Union[str,float,int, List[Union[str,float,int]]]]
+
+@dataclass
+class MLTrainingSolution:
+    Results: Dict[str, Union[str, float, int, np.ndarray, list, dict]]
+    Status: OperationStatusSerde     
+
+## def infer(self, tag: str, features: list) -> list:
+@dataclass
+class MLInferenceProblem:
+    Config: Dict[str, Union[str,float,int]]
+    Info: UserTokenSerde
+    Tag: str
+    Features: List[Union[str,float,int, List[Union[str,float,int]]]]
+
+@dataclass
+class MLInferenceSolution:
+    Results: Dict[str, Union[str, float, int, np.ndarray, dict]]
+    Status: OperationStatusSerde 
+    Labels: List[Union[str,float,int, List[Union[str,float,int]]]]

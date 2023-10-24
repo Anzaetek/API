@@ -1,12 +1,12 @@
 from LaplaceAPIClient import *
 import os
 
-config_solver01_2000_13 = {
+config_solver01_2000_18 = {
     "backend": "QUBOSimulatorBackend",
     "nshots": 2000,      
 }
 
-config_solver01_fujitsuda_13 = {
+config_solver01_fujitsuda_18 = {
     "backend": "FujitsuDASimulatorBackend",
     "nshots": 1,
     "number_iterations": 1000,   #  = 1000,               # total number of itrations per run
@@ -23,24 +23,25 @@ config_solver01_fujitsuda_13 = {
     "rescale": 100.0
 }
 
-config_solver01_VQE_13 = {
+config_solver01_VQE_18 = {
     "backend": "VQESimulatorBackend",
     "ninit": 1,
-    "nshots": 5,     
+    "nshots": 5, 
+    "ansatz": "alternating_ry_rz"    
 }
 
 user1=os.getenv("QUETZALCOATL_USER1")
 token1=os.getenv("QUETZALCOATL_TOKEN1")
 
-qubo13q = QUBO(np.array([
+qubo18q = QUBO(np.array([
     [0.0, -1.0,  4.0],
     [-1.0, 5.0, -9.0],
     [4.0, -9.0, -5.0]
 ]))
 
-qubo13 = QUBOSolverProblem(qubo13q, config_solver01_2000_13, UserTokenSerde(user=user1, token=token1)) # type: ignore
+qubo18 = QUBOSolverProblem(qubo18q, config_solver01_2000_18, UserTokenSerde(user=user1, token=token1)) # type: ignore
 
-def queryDone13(res: QUBOSolverSolution) -> None:
+def queryDone18(res: QUBOSolverSolution) -> None:
     print(res)
     if not "bestBinaryVector" in res.Results:
         raise Exception('failure')
@@ -53,11 +54,11 @@ def queryDone13(res: QUBOSolverSolution) -> None:
     if not abs(res.Results["bestBinaryVector"][2] - 1.0) < 1e-12:
         raise Exception('failure')
 
-pqueryQUBOSolverProblem("http://localhost:5000/execute", qubo13, queryDone13)
+pqueryQUBOSolverProblem("http://localhost:5000/execute", qubo18, queryDone18)
 
 print("vqe")
-qubo13_vqe = QUBOSolverProblem(qubo13q, config_solver01_VQE_13, UserTokenSerde(user=user1, token=token1)) # type: ignore
-pqueryQUBOSolverProblem("http://localhost:5000/execute", qubo13_vqe, queryDone13)
+qubo18_vqe = QUBOSolverProblem(qubo18q, config_solver01_VQE_18, UserTokenSerde(user=user1, token=token1)) # type: ignore
+pqueryQUBOSolverProblem("http://localhost:5000/execute", qubo18_vqe, queryDone18)
 print("vqe done")
 
 print("fujitsu")
@@ -66,8 +67,8 @@ from sys import platform
 fda=os.getenv("FORCE_FUJITSU")
 print("fda", fda)
 if platform == "linux" or platform == "linux2" or fda == "TRUE":
-    qubo13_fujitsu = QUBOSolverProblem(qubo13q, config_solver01_fujitsuda_13, UserTokenSerde(user=user1, token=token1)) # type: ignore
-    pqueryQUBOSolverProblem("http://localhost:5000/execute", qubo13_fujitsu, queryDone13)
+    qubo18_fujitsu = QUBOSolverProblem(qubo18q, config_solver01_fujitsuda_18, UserTokenSerde(user=user1, token=token1)) # type: ignore
+    pqueryQUBOSolverProblem("http://localhost:5000/execute", qubo18_fujitsu, queryDone18)
 else:
     print("skip: not linux/amd64 platform")
 

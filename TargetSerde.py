@@ -422,3 +422,96 @@ def deserializeSibeliusSolutionResponse(r: str) -> SibeliusSolution:
     #print(p1)
     p2 = makeSibeliusSolution(p1)
     return p2
+
+@dataclass
+class MLTrainingProblemSerde:
+    Config: Dict[str, Union[str,float,int]]
+    Info: UserTokenSerde
+    Tag: str
+    Features: List[Union[str,float,int, List[Union[str,float,int]]]]
+    Labels: List[Union[str,float,int, List[Union[str,float,int]]]]
+    TestFeatures: List[Union[str,float,int, List[Union[str,float,int]]]]
+    TestLabels: List[Union[str,float,int, List[Union[str,float,int]]]]
+
+def makeMLTrainingProblemSerde(p: MLTrainingProblem) -> MLTrainingProblemSerde:
+    # orjson.dumps(p, option=orjson.OPT_NAIVE_UTC | orjson.OPT_SERIALIZE_NUMPY)
+    # return JSONSerializer.deserialize(SolverProblemSerde, json.loads(s))  
+    return MLTrainingProblemSerde(p.Config, p.Info, p.Tag, p.Features, p.Labels, p.TestFeatures, p.TestLabels)
+
+def makeMLTrainingProblem(p: MLTrainingProblemSerde) -> MLTrainingProblem:
+    sp = MLTrainingProblem(p.Config, p.Info, p.Tag, p.Features, p.Labels, p.TestFeatures, p.TestLabels)
+    return sp
+    
+@dataclass 
+class MLTrainingSolutionSerde:
+    Results: Dict[str, Union[str, float, int, dict, List[float],List[List[float]]]]
+    Status: OperationStatusSerde   
+
+def makeMLTrainingSolutionSerde(q: MLTrainingSolution) -> MLTrainingSolutionSerde:
+    s = orjson.dumps(q, option=orjson.OPT_NAIVE_UTC | orjson.OPT_SERIALIZE_NUMPY)
+    return cast(MLTrainingSolutionSerde, JSONSerializer.deserialize(MLTrainingSolutionSerde, json.loads(s)))
+
+def makeMLTrainingSolution(q: MLTrainingSolutionSerde) -> MLTrainingSolution:
+    #res: Dict[str,np.ndarray] = {}
+    #for k in s.Results:
+    #    res[k] = np.array(q.Results[k], dtype=float)
+    oups = cast(Dict[str, Union[str, float, int, np.ndarray, dict, list]], q.Results) # TODO: one day we will fix
+    return MLTrainingSolution(oups, q.Status)
+
+def serializeMLTrainingProblemQuery(p: MLTrainingProblem) -> str:
+    p2 = makeMLTrainingProblemSerde(p)
+    query = '{ "__class__":"MLTrainingProblem", "query":' + orjson.dumps(p2).decode("utf-8") + '}'
+    return query
+ 
+def deserializeMLTrainingSolutionResponse(r: str) -> MLTrainingSolution:
+    rv = json.loads(r)
+    p1 = JSONSerializer.deserialize(MLTrainingSolutionSerde, rv)
+    #print(p1)
+    p2 = makeMLTrainingSolution(p1)
+    return p2
+
+@dataclass
+class MLInferenceProblemSerde:
+    Config: Dict[str, Union[str,float,int]]
+    Info: UserTokenSerde
+    Tag: str
+    Features: List[Union[str,float,int, List[Union[str,float,int]]]]
+  
+def makeMLInferenceProblemSerde(p: MLInferenceProblem) -> MLInferenceProblemSerde:
+    # orjson.dumps(p, option=orjson.OPT_NAIVE_UTC | orjson.OPT_SERIALIZE_NUMPY)
+    # return JSONSerializer.deserialize(SolverProblemSerde, json.loads(s))  
+    return MLInferenceProblemSerde(p.Config, p.Info, p.Tag, p.Features)
+
+def makeMLInferenceProblem(p: MLInferenceProblemSerde) -> MLInferenceProblem:
+    sp = MLInferenceProblem(p.Config, p.Info, p.Tag, p.Features)
+    return sp
+ 
+@dataclass 
+class MLInferenceSolutionSerde:
+    Results: Dict[str, Union[str, float, int, List[float],List[List[float]], dict]]
+    Status: OperationStatusSerde
+    Labels: List[Union[str,float,int, List[Union[str,float,int]]]]
+
+def makeMLInferenceSolutionSerde(q: MLInferenceSolution) -> MLInferenceSolutionSerde:
+    s = orjson.dumps(q, option=orjson.OPT_NAIVE_UTC | orjson.OPT_SERIALIZE_NUMPY)
+    #print("deserialize ~ ", s)
+    return cast(MLInferenceSolutionSerde, JSONSerializer.deserialize(MLInferenceSolutionSerde, json.loads(s)))
+
+def makeMLInferenceSolution(q: MLInferenceSolutionSerde) -> MLInferenceSolution:
+    #res: Dict[str,np.ndarray] = {}
+    #for k in s.Results:
+    #    res[k] = np.array(q.Results[k], dtype=float)
+    oups = cast(Dict[str, Union[str, float, int, np.ndarray, dict]], q.Results) # TODO: one day we will fix
+    return MLInferenceSolution(oups, q.Status, q.Labels)
+
+def serializeMLInferenceProblemQuery(p: MLInferenceProblem) -> str:
+    p2 = makeMLInferenceProblemSerde(p)
+    query = '{ "__class__":"MLInferenceProblem", "query":' + orjson.dumps(p2).decode("utf-8") + '}'
+    return query
+ 
+def deserializeMLInferenceSolutionResponse(r: str) -> MLInferenceSolution:
+    rv = json.loads(r)
+    p1 = JSONSerializer.deserialize(MLInferenceSolutionSerde, rv)
+    #print(p1)
+    p2 = makeMLInferenceSolution(p1)
+    return p2

@@ -1,6 +1,12 @@
 from LaplaceAPIClient import *
 import os
 
+from sys import platform
+if platform == "linux" or platform == "linux2":
+    print("ok")
+else:
+    print("ok?") # exit(0)     
+
 path = "./simplifiedJob10_cmd.json"
 txt = ""
 with open(path, "r") as file:

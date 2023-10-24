@@ -105,6 +105,34 @@ def pquerySibeliusProblem(uri: str, q: SibeliusProblem, onCompletion: Callable[[
     print("result=",r)
     onCompletion(r)  
 
+def pqueryMLTrainingProblem(uri: str, q: MLTrainingProblem, onCompletion: Callable[[MLTrainingSolution],None]) -> None:
+    qs = serializeMLTrainingProblemQuery(q)
+    query = {
+        "user": q.Info.user,
+        "token": q.Info.token,
+        "query": qs,        
+    }
+    post_response = requests.post(url = uri, json=query)
+    rv = post_response.json()
+    print(rv)
+    r = deserializeMLTrainingSolutionResponse(json.dumps(rv))
+    print("result=",r)
+    onCompletion(r)  
+ 
+def pqueryMLInferenceProblem(uri: str, q: MLInferenceProblem, onCompletion: Callable[[MLInferenceSolution],None]) -> None:
+    qs = serializeMLInferenceProblemQuery(q)
+    query = {
+        "user": q.Info.user,
+        "token": q.Info.token,
+        "query": qs,        
+    }
+    post_response = requests.post(url = uri, json=query)
+    rv = post_response.json()
+    print(rv)
+    r = deserializeMLInferenceSolutionResponse(json.dumps(rv))
+    print("result=",r)
+    onCompletion(r)  
+
 if __name__ == '__main__':
     print("testing")
     config_m01_ut = {
