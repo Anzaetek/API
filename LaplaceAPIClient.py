@@ -5,6 +5,7 @@ import requests
 import json
 from MarkowitzSerde import *
 from TargetSerde import *
+from SacadosQuadratiqueSerde import *
 
 def pquery(uri: str, m: MarkowitzProblem, onCompletion: Callable[[MarkowitzSolution],None]) -> None:
     qs = serializeMarkowitzProblemQuery(m)
@@ -130,6 +131,20 @@ def pqueryMLInferenceProblem(uri: str, q: MLInferenceProblem, onCompletion: Call
     rv = post_response.json()
     print(rv)
     r = deserializeMLInferenceSolutionResponse(json.dumps(rv))
+    print("result=",r)
+    onCompletion(r)  
+
+def pquerySacadosQuadratiqueProblem(uri: str, q: SacadosQuadratique, onCompletion: Callable[[SacadosQuadratiqueResult],None]) -> None:
+    qs = serializeSacadosQuadratiqueProblemQuery(q)
+    query = {
+        "user": q.Info.user,
+        "token": q.Info.token,
+        "query": qs,        
+    }
+    post_response = requests.post(url = uri, json=query)
+    rv = post_response.json()
+    print(rv)
+    r = deserializeSacadosQuadratiqueResponse(json.dumps(rv))
     print("result=",r)
     onCompletion(r)  
 
