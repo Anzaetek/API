@@ -7,7 +7,7 @@ token1=os.getenv("QUETZALCOATL_TOKEN1")
 
 def queryDone21(r1: SacadosQuadratiqueResult) -> None:
     print("knapsack result", r1)
-    xref = {"rejectedItemIds":["item-1","item-5","item-6","item-16","item-20"],"status":"Success","id":"X","totalValue":939,"totalWeight":0,"solver":"linear","selectedItemIds":["item-2","item-3","item-4","item-7","item-8","item-9","item-10","item-11","item-12","item-13","item-14","item-15","item-17","item-18","item-19"],"version":"0.1.0"}
+    xref = {'rejectedItemIds': ['my-item-0', 'my-item-12', 'my-item-13', 'my-item-5', 'my-item-9'], 'status': 'Success', 'id': 'X', 'totalValue': 939, 'totalWeight': 0, 'solver': 'linear', 'selectedItemIds': ['my-item-1', 'my-item-10', 'my-item-11', 'my-item-14', 'my-item-15', 'my-item-16', 'my-item-17', 'my-item-18', 'my-item-19', 'my-item-2', 'my-item-3', 'my-item-4', 'my-item-6', 'my-item-7', 'my-item-8'], 'version': '0.1.0'}
     if not (r1.totalValue == xref["totalValue"]):
         raise Exception('failure')
     if not (len(r1.selectedItemIds) == len(xref["selectedItemIds"])): # type: ignore
