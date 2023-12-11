@@ -11,4 +11,4 @@ def queryDone12(x: QRNGSolution) -> None:
     if len(x.Results["random"]) < 65536: # type: ignore
         raise Exception('failure')
 
-pqueryQRNGProblem("https://ap2.anzaetek.com:443/execute", qrngP, queryDone12)
+pqueryQRNGProblem("https://api2.anzaetek.com:443/execute", qrngP, queryDone12)
