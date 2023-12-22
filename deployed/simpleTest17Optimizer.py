@@ -46,4 +46,4 @@ def queryDone(x: Any) -> None:
     else:
         raise Exception('failure x2')  
 
-pquerySolverProblem("https://api2.anzaetek.com:443/execute", q0, queryDone) ## lambda x: print("yahoo: ", x))
+pquerySolverProblem("https://api2.anzaetek.com:443/execute", q0, queryDone) 
