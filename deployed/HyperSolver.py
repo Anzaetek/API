@@ -120,5 +120,24 @@ selectedItemIds = solution["selectedItemIds"]
 
 print("totalValue", totalValue)
 print("totalWeight", totalWeight)
-print("rejectedItems", rejectedItemIds)
+print("rejectedItemsIds", rejectedItemIds)
 print("selectedItemIds", selectedItemIds)
+
+expectedTotalValue = 939
+expectedTotalWeight = 598
+expectedRejectedItemsIds = ['my-item-9', 'my-item-13', 'my-item-12', 'my-item-0', 'my-item-5']
+expectedSelectedItemsIds = ['my-item-18', 'my-item-11', 'my-item-1', 'my-item-8', 'my-item-14', 'my-item-6', 'my-item-19', 'my-item-4', 'my-item-3', 'my-item-15', 'my-item-7', 'my-item-16', 'my-item-10', 'my-item-17', 'my-item-2']
+
+assert(expectedTotalValue == totalValue)
+assert(expectedTotalWeight == totalWeight)
+
+for i in expectedRejectedItemsIds:
+    assert(i in rejectedItemIds)
+for i in rejectedItemIds:
+    assert(i in expectedRejectedItemsIds)
+
+for i in expectedSelectedItemsIds:
+    assert(i in selectedItemIds)
+for i in selectedItemIds:
+    assert(i in expectedSelectedItemsIds)
+print("ok")

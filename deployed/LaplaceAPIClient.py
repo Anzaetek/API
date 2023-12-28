@@ -148,6 +148,30 @@ def pquerySacadosQuadratiqueProblem(uri: str, q: SacadosQuadratique, onCompletio
     print("result=",r)
     onCompletion(r)  
 
+def pqueryAssembly(uri: str, usr: UserTokenSerde, nqubits: int, executor: str, xconfig: dict, circuit: str, nshots: int, onCompletion: Callable[[Any],None]) -> None:
+    q = {
+        "__class__": "Assembly",
+        "nqubits": nqubits,
+        "executor": executor,
+        "config": xconfig,
+        "circuit": circuit,
+        "nshots": nshots,
+        "user": usr.user,
+        "token": usr.token,
+    } 
+    qs =json.dumps(q)
+    query = {      
+        "user": usr.user,
+        "token": usr.token,
+        "query": qs,        
+    }
+    post_response = requests.post(url = uri, json=query)
+    rv = post_response.json()
+    print(rv)
+    r = json.loads(json.dumps(rv)) # weird but lol
+    print("result=",r)
+    onCompletion(r) 
+
 if __name__ == '__main__':
     print("testing")
     config_m01_ut = {
@@ -163,3 +187,10 @@ if __name__ == '__main__':
                             np.array([0.05,0.05,0.05], dtype=float)), config_m01, UserTokenSerde(config_m01_ut["user"], config_m01_ut["token"]))
     url = "http://localhost:5000/execute"
     pquery(url, query, lambda x: print(x))
+    #fn = "8.qasm2"
+    #with open(fn, "r") as f:
+    #    circuit1 = f.read()
+    #    print(circuit1) 
+    #    #rv = run_qasm2_server(8, "qiskit", {}, circuit1, 1024)   
+    #    #print(rv) 
+    #    pqueryAssembly(url, UserTokenSerde(config_m01_ut["user"], config_m01_ut["token"]+"x"), 8, "qiskit", {}, circuit1, 1024, lambda x: print(x))
