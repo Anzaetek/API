@@ -39,6 +39,12 @@ def getenvcached(name):
     user1 = os.getenv(name)
     if user1 is None:
         try:
+            user1 = readJsonFile("env.json")[-1][name]
+            return user1
+        except:
+            pass
+    if user1 is None:
+        try:
             user1 = readJsonFile(".env.json")[-1][name]
             return user1
         except:
