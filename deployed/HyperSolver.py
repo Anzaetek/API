@@ -1,3 +1,4 @@
+# This program is a short demo of the usage of the HyperSolver API for Knapsack optimization.
 
 import os
 import json
@@ -5,7 +6,7 @@ import requests
 from typing import cast
 
 HYPERSOLVER_API_URL = 'https://api2.anzaetek.com:8443'
-token = os.getenv("ANZAETEK_HYPERSOLVER_TOKEN")
+# token = os.getenv("ANZAETEK_HYPERSOLVER_TOKEN")
 
 def solveKnapsack2(ks: dict) -> dict:
     headers = {
