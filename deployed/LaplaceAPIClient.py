@@ -172,6 +172,34 @@ def pqueryAssembly(uri: str, usr: UserTokenSerde, nqubits: int, executor: str, x
     print("result=",r)
     onCompletion(r) 
 
+def pqueryAxolotl(uri: str, usr: UserTokenSerde, axolotlProgram: str, context: Any, onCompletion: Callable[[Any],None]) -> None:
+    q0 = {
+        "operation": "execute",
+        "program": axolotlProgram,
+        "context": context
+    }
+    q = {
+        "__class__": "Axolotl",
+        "query": q0,
+        "user": usr.user,
+        "token": usr.token,
+    } 
+    qs =json.dumps(q)
+    query = {      
+        "user": usr.user,
+        "token": usr.token,
+        "query": qs,        
+    }
+    #print("===")
+    #print(query)
+    #print("===")
+    post_response = requests.post(url = uri, json=query)
+    rv = post_response.json()
+    print(rv)
+    r = json.loads(json.dumps(rv)) # weird but lol
+    print("result=",r)
+    onCompletion(r) 
+
 if __name__ == '__main__':
     print("testing")
     config_m01_ut = {
