@@ -30,6 +30,11 @@ config_solver01_VQE_18 = {
     "ansatz": "alternating_ry_rz"    
 }
 
+config_solver01_Julia_18 = {
+    "backend": "JuliaQUBOBackend",
+    "nshots": 1   
+}
+
 user1=os.getenv("QUETZALCOATL_USER1")
 token1=os.getenv("QUETZALCOATL_TOKEN1")
 
@@ -60,6 +65,11 @@ print("vqe")
 qubo18_vqe = QUBOSolverProblem(qubo18q, config_solver01_VQE_18, UserTokenSerde(user=user1, token=token1)) # type: ignore
 pqueryQUBOSolverProblem("https://api2.anzaetek.com:443/execute", qubo18_vqe, queryDone18)
 print("vqe done")
+
+print("julia")
+qubo18_julia = QUBOSolverProblem(qubo18q, config_solver01_Julia_18, UserTokenSerde(user=user1, token=token1)) # type: ignore
+pqueryQUBOSolverProblem("https://api2.anzaetek.com:443/execute", qubo18_julia, queryDone18)
+print("julia done")
 
 print("fujitsu")
 
