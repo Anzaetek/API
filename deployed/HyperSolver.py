@@ -5,7 +5,7 @@ import json
 import requests
 from typing import cast
 
-HYPERSOLVER_API_URL = 'https://api2.anzaetek.com:8443'
+HYPERSOLVER_API_URL = 'https://solver.hypersolver.eu:443'
 # token = os.getenv("ANZAETEK_HYPERSOLVER_TOKEN")
 
 def solveKnapsack2(ks: dict) -> dict:
