@@ -1,0 +1,78 @@
+[
+  {
+    "version": "0.1.0",
+    "name": "Knapsack 1",
+    "itemCount": 17,
+    "capacity": 281,
+    "items": {
+      "item-0": {
+        "value": 3,
+        "weight": 4
+      },
+      "item-1": {
+        "value": 3,
+        "weight": 1
+      },
+      "item-2": {
+        "value": 8,
+        "weight": 2
+      },
+      "item-3": {
+        "value": 2,
+        "weight": 2
+      },
+      "item-4": {
+        "value": 6,
+        "weight": 8
+      },
+      "item-5": {
+        "value": 9,
+        "weight": 3
+      },
+      "item-6": {
+        "value": 3,
+        "weight": 4
+      },
+      "item-7": {
+        "value": 6,
+        "weight": 3
+      },
+      "item-8": {
+        "value": 9,
+        "weight": 2
+      },
+      "item-9": {
+        "value": 5,
+        "weight": 5
+      },
+      "item-10": {
+        "value": 3,
+        "weight": 5
+      },
+      "item-11": {
+        "value": 9,
+        "weight": 3
+      },
+      "item-12": {
+        "value": 6,
+        "weight": 2
+      },
+      "item-13": {
+        "value": 2,
+        "weight": 3
+      },
+      "item-14": {
+        "value": 8,
+        "weight": 1
+      },
+      "item-15": {
+        "value": 3,
+        "weight": 9
+      },
+      "item-16": {
+        "value": 5,
+        "weight": 8
+      }
+    }
+  }
+]

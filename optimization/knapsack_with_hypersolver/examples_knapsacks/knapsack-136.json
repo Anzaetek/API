@@ -1,0 +1,558 @@
+[
+  {
+    "version": "0.1.0",
+    "name": "Knapsack 1",
+    "itemCount": 137,
+    "capacity": 2516,
+    "items": {
+      "item-0": {
+        "value": 9,
+        "weight": 1
+      },
+      "item-1": {
+        "value": 7,
+        "weight": 8
+      },
+      "item-2": {
+        "value": 9,
+        "weight": 6
+      },
+      "item-3": {
+        "value": 7,
+        "weight": 6
+      },
+      "item-4": {
+        "value": 4,
+        "weight": 5
+      },
+      "item-5": {
+        "value": 9,
+        "weight": 1
+      },
+      "item-6": {
+        "value": 9,
+        "weight": 5
+      },
+      "item-7": {
+        "value": 6,
+        "weight": 5
+      },
+      "item-8": {
+        "value": 3,
+        "weight": 7
+      },
+      "item-9": {
+        "value": 6,
+        "weight": 1
+      },
+      "item-10": {
+        "value": 9,
+        "weight": 3
+      },
+      "item-11": {
+        "value": 6,
+        "weight": 3
+      },
+      "item-12": {
+        "value": 3,
+        "weight": 3
+      },
+      "item-13": {
+        "value": 6,
+        "weight": 5
+      },
+      "item-14": {
+        "value": 5,
+        "weight": 8
+      },
+      "item-15": {
+        "value": 2,
+        "weight": 5
+      },
+      "item-16": {
+        "value": 6,
+        "weight": 4
+      },
+      "item-17": {
+        "value": 9,
+        "weight": 1
+      },
+      "item-18": {
+        "value": 2,
+        "weight": 7
+      },
+      "item-19": {
+        "value": 8,
+        "weight": 9
+      },
+      "item-20": {
+        "value": 6,
+        "weight": 7
+      },
+      "item-21": {
+        "value": 9,
+        "weight": 4
+      },
+      "item-22": {
+        "value": 3,
+        "weight": 1
+      },
+      "item-23": {
+        "value": 1,
+        "weight": 4
+      },
+      "item-24": {
+        "value": 5,
+        "weight": 9
+      },
+      "item-25": {
+        "value": 1,
+        "weight": 3
+      },
+      "item-26": {
+        "value": 2,
+        "weight": 4
+      },
+      "item-27": {
+        "value": 6,
+        "weight": 8
+      },
+      "item-28": {
+        "value": 4,
+        "weight": 6
+      },
+      "item-29": {
+        "value": 8,
+        "weight": 6
+      },
+      "item-30": {
+        "value": 9,
+        "weight": 5
+      },
+      "item-31": {
+        "value": 4,
+        "weight": 5
+      },
+      "item-32": {
+        "value": 7,
+        "weight": 4
+      },
+      "item-33": {
+        "value": 6,
+        "weight": 3
+      },
+      "item-34": {
+        "value": 7,
+        "weight": 6
+      },
+      "item-35": {
+        "value": 9,
+        "weight": 5
+      },
+      "item-36": {
+        "value": 7,
+        "weight": 4
+      },
+      "item-37": {
+        "value": 7,
+        "weight": 8
+      },
+      "item-38": {
+        "value": 2,
+        "weight": 7
+      },
+      "item-39": {
+        "value": 9,
+        "weight": 3
+      },
+      "item-40": {
+        "value": 8,
+        "weight": 6
+      },
+      "item-41": {
+        "value": 4,
+        "weight": 3
+      },
+      "item-42": {
+        "value": 8,
+        "weight": 3
+      },
+      "item-43": {
+        "value": 6,
+        "weight": 2
+      },
+      "item-44": {
+        "value": 2,
+        "weight": 2
+      },
+      "item-45": {
+        "value": 5,
+        "weight": 9
+      },
+      "item-46": {
+        "value": 2,
+        "weight": 5
+      },
+      "item-47": {
+        "value": 7,
+        "weight": 6
+      },
+      "item-48": {
+        "value": 1,
+        "weight": 6
+      },
+      "item-49": {
+        "value": 7,
+        "weight": 9
+      },
+      "item-50": {
+        "value": 9,
+        "weight": 4
+      },
+      "item-51": {
+        "value": 6,
+        "weight": 1
+      },
+      "item-52": {
+        "value": 3,
+        "weight": 1
+      },
+      "item-53": {
+        "value": 1,
+        "weight": 2
+      },
+      "item-54": {
+        "value": 2,
+        "weight": 9
+      },
+      "item-55": {
+        "value": 9,
+        "weight": 7
+      },
+      "item-56": {
+        "value": 9,
+        "weight": 9
+      },
+      "item-57": {
+        "value": 1,
+        "weight": 1
+      },
+      "item-58": {
+        "value": 3,
+        "weight": 6
+      },
+      "item-59": {
+        "value": 9,
+        "weight": 8
+      },
+      "item-60": {
+        "value": 4,
+        "weight": 5
+      },
+      "item-61": {
+        "value": 9,
+        "weight": 5
+      },
+      "item-62": {
+        "value": 1,
+        "weight": 5
+      },
+      "item-63": {
+        "value": 9,
+        "weight": 1
+      },
+      "item-64": {
+        "value": 2,
+        "weight": 1
+      },
+      "item-65": {
+        "value": 7,
+        "weight": 5
+      },
+      "item-66": {
+        "value": 6,
+        "weight": 4
+      },
+      "item-67": {
+        "value": 5,
+        "weight": 3
+      },
+      "item-68": {
+        "value": 1,
+        "weight": 8
+      },
+      "item-69": {
+        "value": 3,
+        "weight": 7
+      },
+      "item-70": {
+        "value": 7,
+        "weight": 2
+      },
+      "item-71": {
+        "value": 4,
+        "weight": 5
+      },
+      "item-72": {
+        "value": 9,
+        "weight": 2
+      },
+      "item-73": {
+        "value": 6,
+        "weight": 5
+      },
+      "item-74": {
+        "value": 8,
+        "weight": 9
+      },
+      "item-75": {
+        "value": 2,
+        "weight": 5
+      },
+      "item-76": {
+        "value": 1,
+        "weight": 4
+      },
+      "item-77": {
+        "value": 9,
+        "weight": 4
+      },
+      "item-78": {
+        "value": 3,
+        "weight": 1
+      },
+      "item-79": {
+        "value": 8,
+        "weight": 2
+      },
+      "item-80": {
+        "value": 6,
+        "weight": 2
+      },
+      "item-81": {
+        "value": 6,
+        "weight": 3
+      },
+      "item-82": {
+        "value": 9,
+        "weight": 9
+      },
+      "item-83": {
+        "value": 1,
+        "weight": 8
+      },
+      "item-84": {
+        "value": 1,
+        "weight": 8
+      },
+      "item-85": {
+        "value": 1,
+        "weight": 4
+      },
+      "item-86": {
+        "value": 7,
+        "weight": 7
+      },
+      "item-87": {
+        "value": 2,
+        "weight": 1
+      },
+      "item-88": {
+        "value": 1,
+        "weight": 9
+      },
+      "item-89": {
+        "value": 3,
+        "weight": 9
+      },
+      "item-90": {
+        "value": 9,
+        "weight": 5
+      },
+      "item-91": {
+        "value": 6,
+        "weight": 2
+      },
+      "item-92": {
+        "value": 1,
+        "weight": 7
+      },
+      "item-93": {
+        "value": 3,
+        "weight": 1
+      },
+      "item-94": {
+        "value": 5,
+        "weight": 8
+      },
+      "item-95": {
+        "value": 2,
+        "weight": 3
+      },
+      "item-96": {
+        "value": 4,
+        "weight": 4
+      },
+      "item-97": {
+        "value": 9,
+        "weight": 4
+      },
+      "item-98": {
+        "value": 6,
+        "weight": 5
+      },
+      "item-99": {
+        "value": 3,
+        "weight": 9
+      },
+      "item-100": {
+        "value": 3,
+        "weight": 7
+      },
+      "item-101": {
+        "value": 4,
+        "weight": 5
+      },
+      "item-102": {
+        "value": 4,
+        "weight": 9
+      },
+      "item-103": {
+        "value": 9,
+        "weight": 5
+      },
+      "item-104": {
+        "value": 3,
+        "weight": 7
+      },
+      "item-105": {
+        "value": 8,
+        "weight": 2
+      },
+      "item-106": {
+        "value": 8,
+        "weight": 1
+      },
+      "item-107": {
+        "value": 4,
+        "weight": 7
+      },
+      "item-108": {
+        "value": 8,
+        "weight": 7
+      },
+      "item-109": {
+        "value": 1,
+        "weight": 7
+      },
+      "item-110": {
+        "value": 4,
+        "weight": 4
+      },
+      "item-111": {
+        "value": 1,
+        "weight": 7
+      },
+      "item-112": {
+        "value": 9,
+        "weight": 9
+      },
+      "item-113": {
+        "value": 3,
+        "weight": 3
+      },
+      "item-114": {
+        "value": 6,
+        "weight": 8
+      },
+      "item-115": {
+        "value": 2,
+        "weight": 7
+      },
+      "item-116": {
+        "value": 1,
+        "weight": 3
+      },
+      "item-117": {
+        "value": 9,
+        "weight": 3
+      },
+      "item-118": {
+        "value": 7,
+        "weight": 6
+      },
+      "item-119": {
+        "value": 4,
+        "weight": 5
+      },
+      "item-120": {
+        "value": 2,
+        "weight": 4
+      },
+      "item-121": {
+        "value": 4,
+        "weight": 9
+      },
+      "item-122": {
+        "value": 6,
+        "weight": 9
+      },
+      "item-123": {
+        "value": 7,
+        "weight": 5
+      },
+      "item-124": {
+        "value": 9,
+        "weight": 8
+      },
+      "item-125": {
+        "value": 9,
+        "weight": 9
+      },
+      "item-126": {
+        "value": 2,
+        "weight": 2
+      },
+      "item-127": {
+        "value": 4,
+        "weight": 1
+      },
+      "item-128": {
+        "value": 1,
+        "weight": 4
+      },
+      "item-129": {
+        "value": 6,
+        "weight": 8
+      },
+      "item-130": {
+        "value": 9,
+        "weight": 7
+      },
+      "item-131": {
+        "value": 3,
+        "weight": 9
+      },
+      "item-132": {
+        "value": 6,
+        "weight": 3
+      },
+      "item-133": {
+        "value": 8,
+        "weight": 6
+      },
+      "item-134": {
+        "value": 9,
+        "weight": 7
+      },
+      "item-135": {
+        "value": 8,
+        "weight": 4
+      },
+      "item-136": {
+        "value": 1,
+        "weight": 6
+      }
+    }
+  }
+]
