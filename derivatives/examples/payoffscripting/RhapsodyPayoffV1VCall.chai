@@ -1,0 +1,23 @@
+
+// "ChaiTrade(maturity=20191201,last=20191204,pay=20191204,start=20191110,key=VCall,underlying=USDKRW,T=20191113,strike=1100.0)@@[[\"USDKRW\",[[20191110,100.0],[20191111,100.0],[20191112,100.0],[20191113,100.0],[20191114,100.0],[20191115,100.0],[20191116,100.0],[20191117,100.0],[20191118,100.0],[20191119,100.0],[20191120,100.0],[20191121,100.0],[20191122,100.0],[20191123,100.0],[20191124,100.0],[20191125,279.0]]]]",
+PAY = date(pay);
+OBS = date(maturity)
+X = toFloat(strike)
+
+func RecordSlice(Date THISDAY, slice_t DISCOUNT) {
+
+    if (THISDAY == OBS) {
+        S = get_asset(0);
+        payoff = max(S - X, 0)
+        update_state(payoff)
+    }
+
+    if (THISDAY == PAY) {
+        s = get_state();
+        s = s * DISCOUNT;
+        set_state(s);
+    }
+
+}
+
+Register(RecordSlice);
