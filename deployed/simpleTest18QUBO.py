@@ -35,6 +35,11 @@ config_solver01_Julia_18 = {
     "nshots": 1   
 }
 
+config_solver01_Optic_18 = {
+    "backend": "OpticQUBOBackend",
+    "nshots": 1   
+}
+
 user1=os.getenv("QUETZALCOATL_USER1")
 token1=os.getenv("QUETZALCOATL_TOKEN1")
 
@@ -61,6 +66,11 @@ def queryDone18(res: QUBOSolverSolution) -> None:
 
 pqueryQUBOSolverProblem("https://api2.anzaetek.com:443/execute", qubo18, queryDone18)
 
+print("optic")
+qubo18_optic = QUBOSolverProblem(qubo18q, config_solver01_Optic_18, UserTokenSerde(user=user1, token=token1)) # type: ignore
+pqueryQUBOSolverProblem("https://api2.anzaetek.com:443/execute", qubo18_optic, queryDone18)
+print("optic done")
+
 print("vqe")
 qubo18_vqe = QUBOSolverProblem(qubo18q, config_solver01_VQE_18, UserTokenSerde(user=user1, token=token1)) # type: ignore
 pqueryQUBOSolverProblem("https://api2.anzaetek.com:443/execute", qubo18_vqe, queryDone18)
@@ -72,15 +82,7 @@ pqueryQUBOSolverProblem("https://api2.anzaetek.com:443/execute", qubo18_julia, q
 print("julia done")
 
 print("fujitsu")
-
-from sys import platform
-fda=os.getenv("FORCE_FUJITSU")
-print("fda", fda)
-if platform == "linux" or platform == "linux2" or fda == "TRUE":
-    qubo18_fujitsu = QUBOSolverProblem(qubo18q, config_solver01_fujitsuda_18, UserTokenSerde(user=user1, token=token1)) # type: ignore
-    pqueryQUBOSolverProblem("https://api2.anzaetek.com:443/execute", qubo18_fujitsu, queryDone18)
-else:
-    print("skip: not linux/amd64 platform")
-
+qubo18_fujitsu = QUBOSolverProblem(qubo18q, config_solver01_fujitsuda_18, UserTokenSerde(user=user1, token=token1)) # type: ignore
+pqueryQUBOSolverProblem("https://api2.anzaetek.com:443/execute", qubo18_fujitsu, queryDone18)
 print("fujitsu done")
 

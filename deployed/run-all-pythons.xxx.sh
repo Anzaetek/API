@@ -24,7 +24,7 @@ fi
 conda activate vqe-ml2
 conda activate qiskit
 
-for i in simpleTest17*.py; do
+for i in simpleTest24N*.py; do
     echo $i;
     QUETZALCOATL_USER1=$QUETZALCOATL_USER1 QUETZALCOATL_TOKEN1=$QUETZALCOATL_TOKEN1 time python $i || exit -1;
 done

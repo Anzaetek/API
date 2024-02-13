@@ -24,7 +24,7 @@ filter-heuristic none;
 optimize $all;
 section .openoqasm
 OPTICQASM 1.0;
-generic_interferometer ps($phi) bs_rx($theta, $phi_tr) q[0], q[1], q[2], q[3], q[4], q[5];
+generic_interferometer ps($phi) bsrx($theta, phi_tr=$phi_tr) q[0], q[1], q[2], q[3], q[4], q[5];
 
 """
 

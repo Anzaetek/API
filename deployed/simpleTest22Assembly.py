@@ -13,4 +13,5 @@ with open(fn, "r") as f:
     pqueryAssembly(url, UserTokenSerde(user1, token1), 8, "qiskit", {}, circuit1, 1024, lambda x: print("qiskit>", x)) # type: ignore
     pqueryAssembly(url, UserTokenSerde(user1, token1), 8, "circ", {}, circuit1, 1024, lambda x: print("circ>", x)) # type: ignore
     pqueryAssembly(url, UserTokenSerde(user1, token1), 8, "qadence", {}, circuit1, 1024, lambda x: print("qadence>", x)) # type: ignore
-    pqueryAssembly(url, UserTokenSerde(user1, token1), 4, "spinqit", {}, circuit1, 1024, lambda x: print("spinqit>", x)) # type: ignore
+    pqueryAssembly(url, UserTokenSerde(user1, token1), 8, "spinqit", {}, circuit1, 1024, lambda x: print("spinqit>", x)) # type: ignore
+    pqueryAssembly(url, UserTokenSerde(user1, token1), 8, "qpanda2", {}, circuit1, 1024, lambda x: print("qpanda2>", x)) # type: ignore
