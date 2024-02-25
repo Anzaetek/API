@@ -25,8 +25,12 @@ The `optimization` folder contains examples of how to interact with the optimiza
 ## Quantum Chemistry
 The `quantum_chemistry` folder contains examples of how to interact with the quantum chemistry API.  The quantum chemistry API provides access to quantum computing approaches to quantum chemistry problems.
 
+## Quantum SciComp
+The `quantum_scicomp` folder contains examples of how to interest with the quantum scientific computing API.   The quantum scientific computing API provides access to quantum computing approaches to scientific computing problems (problems that involve PDE solvers, mechanical engineering, CFD...) 
+
 ## Quantum Hardware
 The `quantum_hardware` folder contains examples of how to interact with the quantum hardware API.  The quantum hardware API provides a direct API for access to quantum hardware.
 
 # More Information
 For more information, please visit the Anzaetek website at https://anzaetek.com.  For support, please contact: support@anzaetek.com
+
