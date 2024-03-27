@@ -2,6 +2,7 @@
 These example show non-covalent interaction modeling using (simulated) photonics QC.
 More precisely, they use (Quantum) Drude Oscillators to model a 2 atom interaction.
 Please cf. arxiv: 2306.08544 for details about the methodology.
+For each configuration point, a (photonics, continuous variable) VQE is used to to compute energy functionals of interest.
 On principle, this methodology can be scaled to much larger problems and is of interest 
 for compounds with complex long-distance/non-covalent interactions such as RNA and proteins.
 
