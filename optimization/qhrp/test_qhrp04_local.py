@@ -26,13 +26,15 @@ def qhrp_query(q0):
     #print(rv)
     return rv
 
-def q0(lst):
+def q0(lst, t):
     return {
         "use_covar": [],
         "from_date_yyyy_m_d": "2022-1-1",
         "to_date_yyyy_m_d": "2023-1-1",
         "ticker_list": lst,
-        "constraint_weight": 50
+        "constraint_weight": 50, 
+        "mode": "replay", # record, record_and_compute, replay
+        "tag": t 
     }
 
 lsts = [
@@ -46,7 +48,13 @@ lsts = [
     ["WAT", "TDY", "PG", "J", "JCI", "EL", "APH", "APD", "ROST", "VZ", "PANW", "HCA", "PFG", "DGX"]
 ]
 
+c = 0
 for l in lsts: 
     print("tickers = ", l)
-    res = qhrp_query(q0(l))
-    print(res["allocation"], res["perm"])
+    t = "qhrp04" + str(c)
+    try:
+        res = qhrp_query(q0(l, t))
+        print(res["allocation"], res["perm"])
+    except:
+        pass
+    c+=1
