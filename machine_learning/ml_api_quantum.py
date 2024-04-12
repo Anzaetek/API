@@ -33,6 +33,7 @@ config = {
 import requests
 import json
 
+# url = "https://api2.anzaetek.com:443/execute"
 url = "http://localhost:5000/execute"
 
 def query_ml01_train(config, tag, xfeatures, xlabels, tfeatures, tlabels):
@@ -53,13 +54,14 @@ def query_ml01_train(config, tag, xfeatures, xlabels, tfeatures, tlabels):
 status = query_ml01_train(config, tag, xfeatures, xlabels, tfeatures, tlabels)
 print(status)
 
-tag = "TestOnly#TestML19"
+tag = "TestOnly#API_QML_01"
 ifeatures = tfeatures
 
 import requests
 import json
 
-url = "https://api2.anzaetek.com:443/execute"
+# url = "https://api2.anzaetek.com:443/execute"
+url = "http://localhost:5000/execute"
 
 def query_ml01_infer(tag, ifeatures):
     infer_q = { "__class__":"MLInferenceProblem", 
