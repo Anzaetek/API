@@ -1,5 +1,5 @@
 # HyperSolver examples.
-This folder shows a variety of rather detailed excamples of use of the HyperSolver related solutions.
+This folder shows a variety of rather detailed examples of use of the HyperSolver related solutions.
 
 # Revenue management
 # Finance
