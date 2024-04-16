@@ -20,7 +20,7 @@ The `derivatives` folder contains examples of how to interact with the derivativ
 The `machine_learning` folder contains examples of how to interact with the machine learning API.  The machine learning API provides access to quantum computing approaches to various machine learning problems.
 
 ## Optimization
-The `optimization` folder contains examples of how to interact with the optimization API.  The optimization API provides access to quantum computing approaches to optimization problems.
+The `optimization` folder contains examples of how to interact with the optimization API.  The optimization API provides access to quantum computing & quantum inspired approaches to optimization problems.
 
 ## Quantum Chemistry
 The `quantum_chemistry` folder contains examples of how to interact with the quantum chemistry API.  The quantum chemistry API provides access to quantum computing approaches to quantum chemistry problems.
