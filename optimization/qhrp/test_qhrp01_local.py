@@ -6,6 +6,8 @@ import requests
 user1 = utils.getenvcached("QUETZALCOATL_USER1")
 token1 = utils.getenvcached("QUETZALCOATL_TOKEN1")
 
+##print(user1, token1)
+
 uri = "http://127.0.0.1:5000/execute"
 
 def qhrp_query(q0):
