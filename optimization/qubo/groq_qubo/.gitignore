@@ -1,5 +1,4 @@
 .env.json
 env.json
-__pycache__
 env_maxeler.json
 .env_maxeler.json
