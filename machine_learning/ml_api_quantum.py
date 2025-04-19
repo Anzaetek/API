@@ -66,7 +66,7 @@ url = "http://localhost:5000/execute"
 def query_ml01_infer(tag, ifeatures):
     infer_q = { "__class__":"MLInferenceProblem", 
             "query": {
-                "Config": {},
+                "Config": config, # {}
                 "Info":{"user":user1,"token":token1},
                 "Tag": tag,
                 "Features":ifeatures

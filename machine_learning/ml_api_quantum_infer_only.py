@@ -21,46 +21,52 @@ print(repr(tfeatures[0:2]))
 tlabels = testing_set['y'].to_list()
 print(repr(tlabels[0:10]))
 
-tag = "TestOnly#API_ML_01"
-config = {"n_estimators":50,"learning_rate":0.2,"random_state":42,"early_stopping_rounds":10,"eval_metric":"error","model_type":"onnx/xgboost"}
+tag = "TestOnly#API_QML_01"
+config = {
+            'num_classes': 2,
+            'n_qubits': 6,
+            'max_depth': 4,
+            'pqc_sample_num': 2024,
+            'model_type': 'QRF'
+    }
 
 import requests
 import json
 
-#url = "https://api2.anzaetek.com:443/execute"
-url = "http://localhost:5000/execute"
+# # url = "https://api2.anzaetek.com:443/execute"
+# url = "http://localhost:5000/execute"
 
-def query_ml01_train(config, tag, xfeatures, xlabels, tfeatures, tlabels):
-    train_q = { "__class__":"MLTrainingProblem", 
-                "query":{
-                    "Config":config,
-                    "Info":{"user":user1,"token":token1},"Tag":tag,
-                    "Features":xfeatures,"Labels":xlabels,
-                    "TestFeatures":tfeatures,"TestLabels":tlabels}}
+# def query_ml01_train(config, tag, xfeatures, xlabels, tfeatures, tlabels):
+#     train_q = { "__class__":"MLTrainingProblem", 
+#                 "query":{
+#                     "Config":config,
+#                     "Info":{"user":user1,"token":token1},"Tag":tag,
+#                     "Features":xfeatures,"Labels":xlabels,
+#                     "TestFeatures":tfeatures,"TestLabels":tlabels}}
 
-    train_query = {'user': user1, 'token': token1, 'query': json.dumps(train_q)}
+#     train_query = {'user': user1, 'token': token1, 'query': json.dumps(train_q)}
 
-    post_response = requests.post(url = url, json=train_query)
-    rv = post_response.json()
-    #print(rv)
-    return rv['Results']['report']
+#     post_response = requests.post(url = url, json=train_query)
+#     rv = post_response.json()
+#     #print(rv)
+#     return rv['Results']['report']
 
-status = query_ml01_train(config, tag, xfeatures, xlabels, tfeatures, tlabels)
-print(status)
+# status = query_ml01_train(config, tag, xfeatures, xlabels, tfeatures, tlabels)
+# print(status)
 
-tag = "TestOnly#TestML19"
+tag = "TestOnly#API_QML_01"
 ifeatures = tfeatures
 
 import requests
 import json
 
-#url = "https://api2.anzaetek.com:443/execute"
+# url = "https://api2.anzaetek.com:443/execute"
 url = "http://localhost:5000/execute"
 
 def query_ml01_infer(tag, ifeatures):
     infer_q = { "__class__":"MLInferenceProblem", 
             "query": {
-                "Config": {},
+                "Config": config, # {}
                 "Info":{"user":user1,"token":token1},
                 "Tag": tag,
                 "Features":ifeatures
@@ -74,4 +80,4 @@ def query_ml01_infer(tag, ifeatures):
     return rv['Labels']
 
 ir = query_ml01_infer(tag, ifeatures)
-print(ir)
+print(">", ir)
