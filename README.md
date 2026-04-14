@@ -1,3 +1,13 @@
+# DEPRECATION NOTICE
+This API [aka Quantum Explorer/Quetzalcotal/Atlas] is now deprecated
+look at the following for replacement
+RT => omega-functions (to be released soon), DSL => Anzaetek Quantum Toolkit (Aria Quantum language)
+QML => QML Explorer, Sqetch for end users, Anzaetek Quantum Toolkit (to be released soon)
+Derivatives => Pricer Master [relicensed system] with QML extensions (to be released ... later)
+Others => omega-functions & Anzaetek Quantum Toolkit 
+
+## See you soon!
+
 Welcome to the Anzaetek API reference repository.  This repository contains examples for working with the Anzaetek API.  
 
 # API Overview
